@@ -1,0 +1,15 @@
+(venv_cht) PS C:\Users\lucas\Desktop\mestrado\eng-soft\CHT-main> python analysis.py 2026-05-28_16-51-09
+[analyze_refactoring_outputs] Model: deepseek-coder_1.3b
+output_status
+NN    1728
+GN    1461
+GR       6
+NR       5
+Name: count, dtype: int64
+[analyze_comment_insertion_outputs] Model: deepseek-coder_1.3b
+output_status
+NN    2049
+GN    1100
+GR      26
+NR      25
+Name: count, dtype: int64
