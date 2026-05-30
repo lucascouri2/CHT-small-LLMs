@@ -1,0 +1,28 @@
+================ Analysis of Output Status =================
+Model Name: codellama_7b File Name: 
+Task: Program Refactoring
+Refactoring Type Count: 32
+
+Output Status Category:
+output_status
+GN      95
+GR       0
+NR      19
+NN    3086
+Name: count, dtype: int64
+Total: 3200
+
+Output Status Proportions:
+output_status
+GN    0.029687
+GR    0.000000
+NR    0.005938
+NN    0.964375
+Name: proportion, dtype: float64
+Total: 1.0
+
+Chi-square Test:
+Category            Chi2                p-value                  Significant
+--------------------------------------------------------------------------------
+Refactoring Type    575.4123273186206   2.7748883932222017e-84   Yes
+Keyword Category    32.64140035384485   0.11186882049130611      No

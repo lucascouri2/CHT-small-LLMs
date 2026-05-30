@@ -1,0 +1,28 @@
+================ Analysis of Output Status =================
+Model Name: deepseek-coder_6.7b File Name: 
+Task: Program Refactoring
+Refactoring Type Count: 32
+
+Output Status Category:
+output_status
+GN    1672
+GR       3
+NR      78
+NN    1447
+Name: count, dtype: int64
+Total: 3200
+
+Output Status Proportions:
+output_status
+GN    0.522500
+GR    0.000937
+NR    0.024375
+NN    0.452188
+Name: proportion, dtype: float64
+Total: 1.0
+
+Chi-square Test:
+Category            Chi2                p-value                  Significant
+--------------------------------------------------------------------------------
+Refactoring Type    3712.9212988057056  0.0                      Yes
+Keyword Category    35.82671337068379   0.47677626489663205      No

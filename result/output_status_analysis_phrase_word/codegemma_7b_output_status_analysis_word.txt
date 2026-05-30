@@ -1,0 +1,28 @@
+================ Analysis of Output Status =================
+Model Name: codegemma_7b File Name: word
+Task: Insert Comment
+Refactoring Type Count: 32
+
+Output Status Category:
+output_status
+GN    1775
+GR      11
+NR     300
+NN     474
+Name: count, dtype: int64
+Total: 2560
+
+Output Status Proportions:
+output_status
+GN    0.693359
+GR    0.004297
+NR    0.117188
+NN    0.185156
+Name: proportion, dtype: float64
+Total: 1.0
+
+Chi-square Test:
+Category            Chi2                p-value                  Significant
+--------------------------------------------------------------------------------
+Refactoring Type    1204.9188963624476  9.288209885836351e-193   Yes
+Keyword Category    540.8297431829766   2.4090684157929018e-91   Yes

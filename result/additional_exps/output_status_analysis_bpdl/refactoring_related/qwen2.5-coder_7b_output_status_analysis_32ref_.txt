@@ -1,0 +1,28 @@
+================ Analysis of Output Status =================
+Model Name: qwen2.5-coder_7b File Name: 
+Task: Program Refactoring
+Refactoring Type Count: 32
+
+Output Status Category:
+output_status
+GN    2206
+GR       5
+NR     231
+NN     781
+Name: count, dtype: int64
+Total: 3223
+
+Output Status Proportions:
+output_status
+GN    0.684455
+GR    0.001551
+NR    0.071672
+NN    0.242321
+Name: proportion, dtype: float64
+Total: 1.0
+
+Chi-square Test:
+Category            Chi2                p-value                  Significant
+--------------------------------------------------------------------------------
+Refactoring Type    3558.0477430484657  0.0                      Yes
+Keyword Category    121.60197942867292  3.226203985903503e-11    Yes

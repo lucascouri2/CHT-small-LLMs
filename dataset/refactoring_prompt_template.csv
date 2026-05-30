@@ -1,0 +1,277 @@
+﻿html_url,response_content,compile_result,input_program_loc,refactoring_type,prompt
+https://bugs.eclipse.org/bugs/show_bug.cgi?id=82673,"{
+    ""classes"": [
+        {
+            ""className"": ""Test.java"",
+            ""content"": ""public class Test {
+    void test1() {
+        class Dummy {};
+        Dummy d = new Dummy();
+    }
+    
+    void test2() {
+        class Dummy {};
+        Dummy d = new Dummy();
+    }
+}""
+        }
+    ]
+}",1,10,rename class,"Rename the class ""Test"" to [keyword]:"
+https://youtrack.jetbrains.com/issue/IDEA-108026/Renaming-an-entity-field-does-not-rename-the-setter-method-parameter,"{
+    ""classes"": [
+        {
+            ""className"": ""Entity.java"",
+            ""content"": ""public class Entity {\n    private int newName;\n\n    public int getNewName() {  return newName;}\n\n    public void setNewName(int oldName) {  this.newName = oldName;}\n}""
+        }
+    ]
+}",1,5,rename field,"Rename the field ""newName"" to [keyword]:"
+https://bugs.eclipse.org/bugs/show_bug.cgi?id=138320,"{
+    ""classes"": [
+        {
+            ""className"": ""Try.java"",
+            ""content"": ""public class Try {\n\tvoid abc() {}\n\tvoid ref() {\n\t\tabc();\n\t}\n}""
+        }
+    ]
+}",1,6,rename method,"Rename the method ""abc"" to [keyword]:"
+https://youtrack.jetbrains.com/issue/IDEA-81427/Rename-inserts-this-qualifier-before-static-field-reference,"{
+    ""classes"": [
+        {
+            ""className"": ""X.java"",
+            ""content"": ""class X {
+    public static final String s = 's';
+
+    public static void main(String... args) {
+        String s1 = s;
+    }
+}""
+        }
+    ]
+}",1,6,rename variable,"Rename the variable ""s1"" to [keyword]:"
+https://bugs.eclipse.org/bugs/show_bug.cgi?id=546819,"{
+    ""classes"": [
+        {
+            ""className"": ""RefactorWithVarArgsBug.java"",
+            ""content"": ""public class RefactorWithVarArgsBug {\n\n\tpublic static void main(String[] args) {\n\t\tRefactorWithVarArgsBug o = new RefactorWithVarArgsBug(true);\n\t}\n\n\tpublic RefactorWithVarArgsBug(boolean a, String... strings) {\n\n\t}\n}""
+        } ]
+}",1,21,change method signature,"Add a new parameter to the ""RefactorWithVarArgsBug"" method and name it [keyword]:"
+https://bugs.eclipse.org/bugs/show_bug.cgi?id=566944,"{
+    ""classes"": [
+        {
+            ""className"": ""R.java"",
+            ""content"": ""@SuppressWarnings(\""preview\"")\nrecord R(int i) {\n\tR {\n\t\tSystem.out.println(\""Compact Constructor\"");\n\t}\n}""
+        }
+    ]
+}",1,6,Introduce Parameter Object,Introduce a new Parameter Object and name it [keyword]:
+https://bugs.eclipse.org/bugs/show_bug.cgi?id=89526,"{
+    ""classes"": [
+        {
+            ""className"": ""C.java"",
+            ""content"": ""class C {
+  int foo(int i, int... array) {
+    return 42;
+  }
+}""
+        }
+    ]
+}",1,5,introduce parameter,Introduce a new parameter to the foo method and name it [keyword]:
+https://bugs.eclipse.org/bugs/show_bug.cgi?id=243101,"{
+""classes"": [
+{
+""className"": ""Bug.java"",
+""content"": ""enum Bug { X;\n\t{\n\t\tswitch(valueOf(\""X\"")){\n\t\t}\n\t}\n}""
+}
+]
+}",1,6,extract variable,Extract a temporary variable from the switch expression and name it [keyword]:
+https://bugs.eclipse.org/bugs/show_bug.cgi?id=352785,"{
+""classes"": [
+{
+""className"": ""Example.java"",
+""content"": ""public class Example {\n public void foo(int i) {\n switch (i) {\n case 1:\n if (true) {\n break;\n }\n }\n }\n}""
+}
+]
+}",1,10,extract method,Extract a method that includes the switch and name it [keyword]:
+https://youtrack.jetbrains.com/issue/IDEA-112590/Extract-class-as-enum-breaks-code-when-multiple-constants-are-in-one-declaration,"{
+""classes"": [
+{
+""className"": ""X.java"",
+""content"": ""class X {\n public static final int LEFT = 0, RIGHT = 1, CENTERED = 2, JUSTIFIED = 3;\n}""
+}
+]
+}",1,3,extract class,Extract a class as an enum and name it [keyword]:
+,"public class Person {
+    private List<String> courses;
+
+    public List<String> getCourses() {
+        return this.courses;
+    }
+
+    public void setCourses(List<String> aList) {
+        this.courses = aList;
+    }
+}",,,Encapsulate Collection,Encapsulate the collection by adding methods to manage course additions and removals. Name them add[keyword] and remove[keyword]:
+,"public String getOrganization() {
+    return ""Organization{name='"" + ""Acme Gooseberries"" + ""'}"";
+}",,,Encapsulate Record,Encapsulate the record by adding methods to get and set names. Name them get[keyword] and set[keyword]:
+https://bugs.eclipse.org/bugs/show_bug.cgi?id=251572,"{
+    ""classes"": [
+        {
+            ""className"": ""A.java"",
+            ""content"": ""public class A {\n\tboolean[] theField[];\n}""
+        }
+    ]
+}",1,3,Encapsulate Variable,"Encapsulate the ""theField"" variable, and name its getter [keyword]:"
+https://bugs.eclipse.org/bugs/show_bug.cgi?id=170239,"{
+    ""classes"": [
+        {
+            ""className"": ""ClassA.java"",
+            ""content"": ""import java.io.FilterReader;\nimport java.io.IOException;\nimport java.io.Reader;\n\npublic class ClassA extends FilterReader {\n  public ClassA(Reader in) {   \n    super(in);\n  }\n\n  @Override\n  public int read(char[] cbuf, int off, int len) throws IOException {\n    return super.read(cbuf, off, len);\n  }\n}""
+        }
+    ]
+}",1,12,Extract Superclass,Extract a superclass and name it [keyword]:
+,"public class Department {
+    private String manager;
+
+    public Department(String manager) {
+        this.manager = manager;
+    }
+
+    public String getManager() {
+        return manager;
+    }
+
+    public void setManager(String manager) {
+        this.manager = manager;
+    }
+}",,,Hide Delegate,Refactor the following class to hide delegation. Create a new class to hide the delegation of the department and name it [keyword]:
+,"public class Customer {
+    private String name;
+
+    public Customer(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        if (""unknown"".equals(name)) {
+            return ""occupant"";
+        }
+        return name;
+    }
+}",,,Introduce Special Case,Create a new class to handle the special case and name it [keyword]:
+,"public class Person {
+    private BigDecimal salary;
+    public void tenPercentRaise() {
+        this.salary = this.salary.multiply(BigDecimal.valueOf(1.1));
+    }
+    public void fivePercentRaise() {
+        this.salary = this.salary.multiply(BigDecimal.valueOf(1.05));
+    }
+}",,,Parameterize Function,Create a new function and name it [keyword] to parameterize the function:
+,"public class Rectangle {
+    private double height;
+
+    public void setDimension(String name, double value) {
+        if (name.equals(""height"")) {
+            this.height = value;
+        } 
+    }
+}",,,Remove Flag Argument,Remove the flag argument by creating a method to handle the height and naming it [keyword]:
+,"public class ChargeCalculator {
+    private Customer customer;
+    private double usage;
+
+    public ChargeCalculator(Customer customer, double usage) {
+        this.customer = customer;
+        this.usage = usage;
+    }
+
+    public double execute() {
+        return this.customer.getRate() * this.usage;
+    }
+}",,,Replace Command with Function,Replace this command class with a function and name it [keyword]:
+,"public String getStatus() {
+        switch (type) {
+            case ""EuropeanSwallow"":
+                return ""average"";
+            case ""AfricanSwallow"":
+                return (numberOfCoconuts > 2) ? ""tired"" : ""average"";
+            case ""NorwegianBlueParrot"":
+                return (voltage > 100) ? ""scorched"" : ""beautiful"";
+            default:
+                return ""unknown"";
+        }
+    }",,,Replace Conditional with Polymorphism,"Replace conditional with polymorphism, using a method to return the type of plumage and name it [keyword]:"
+https://youtrack.jetbrains.com/issue/IDEA-152822/Replace-Constructor-with-Factory-Method-refactoring-should-warn-when-method-is-already-present,"{
+    ""classes"": [
+        {
+            ""className"": ""A.java"",
+            ""content"": ""class A {\n  public A() {}\n\n  public static A createA() {\n    return A.createA();\n  }\n}""
+        }
+    ]
+}",1,6,Replace Constructor with Factory Function,Replace the constructor with a factory function and name it [keyword]:
+,"public Object createShippingRules(boolean data) {
+    if (data) {
+        return new ShippingRules();
+    } else {
+        return -23;
+    }
+}",,,Replace Error Code with Exception,Replace the error code with an exception and name it [keyword]:
+,"    public int score(Candidate candidate, MedicalExam medicalExam, ScoringGuide scoringGuide) {
+        int result = 0;
+        int healthLevel = 0;
+        // long body code
+        return result;
+    }",,,Replace Function with Command,Replace the function with a command and name it [keyword]:
+,"public static double potentialEnergy(double mass, double height) {
+        return mass * 9.81 * height;
+    }",,,Replace Magic Literal,Replace the magic literal with a constant and name it [keyword]:
+,"List<Order> filteredOrders = orders.stream()
+    .filter(o -> ""high"".equals(o.getPriority()) || ""rush"".equals(o.getPriority()))
+    .collect(Collectors.toList());",,,Replace Primitive with Object,Replace the primitive with an object that has a method to compare and name it [keyword]:
+,"class Order {
+    protected Warehouse _warehouse;
+
+    public int getDaysToShip() {
+        return _warehouse.getDaysToShip();
+    }
+}
+
+class PriorityOrder extends Order {
+    protected PriorityPlan _priorityPlan;
+
+    @Override
+    public int getDaysToShip() {
+        return _priorityPlan.getDaysToShip();
+    }
+}",,,Replace Subclass with Delegate,Replace the subclass with a delegate and name it [keyword]:
+,"class List {
+    // ...
+}
+
+class Stack extends List {
+    // ...
+}",,,Replace Superclass with Delegate,Replace the superclass with a delegate and name it [keyword]:
+,"double basePrice = this._quantity * this._itemPrice;
+if (basePrice > 1000) {
+    return basePrice * 0.95;
+} else {
+    return basePrice * 0.98;
+}",,,Replace Temp with Query,Replace the temp variable with a query method and name it [keyword]:
+,"public Employee createEmployee(String name, String type) {
+    return new Employee(name, type);
+}",,,Replace Type Code with Subclasses,Replace the type code with subclasses and name them [keyword]:
+,"public double getTotalOutstandingAndSendBill() {
+    double result = 0;
+    for (Invoice each : customer.getInvoices()) {
+        result += each.getAmount();
+    }
+    sendBill();
+    return result;
+}",,,Separate Query from Modifier,Separate the query from the modifier and use a method for querying and name it [keyword]:
+,"String[] orderData = orderString.split(""\\s+"");
+String[] productDetails = orderData[0].split(""–"");
+int productPrice = priceList.get(productDetails[1]);
+int orderPrice = Integer.parseInt(orderData[1]) * productPrice;",,,Split Phase,Split the phase and use a method for querying price and name it [keyword]:
+,"int temp = 2 * (height + width);
+System.out.println(temp);
+temp = height * width;
+System.out.println(temp);",,,Split Variable,Split the variable and use a variable for the temp and name it [keyword]:

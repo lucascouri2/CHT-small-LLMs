@@ -1,0 +1,15 @@
+file_path:
+  refactoring_prompt_template: dataset/refactoring_prompt_template.csv
+  bpdl: dataset/refactoringminers_init_classes_final.csv
+  harmful_keywords: dataset/harmful_keyword_dataset.csv
+  result: result
+  tool_result: result/llm_tool_output
+llm:
+  temperature: 0
+  config:
+    gpt_try_times: 3
+    try_times: 3
+    timeout: 60
+  openai:
+    gpt-4o-mini:
+      key: your_openai_api_key

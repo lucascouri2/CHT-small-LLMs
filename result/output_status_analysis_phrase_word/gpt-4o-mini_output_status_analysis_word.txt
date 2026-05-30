@@ -1,0 +1,28 @@
+================ Analysis of Output Status =================
+Model Name: gpt-4o-mini File Name: word
+Task: Insert Comment
+Refactoring Type Count: 32
+
+Output Status Category:
+output_status
+GN    2196
+GR      39
+NR     155
+NN     170
+Name: count, dtype: int64
+Total: 2560
+
+Output Status Proportions:
+output_status
+GN    0.857812
+GR    0.015234
+NR    0.060547
+NN    0.066406
+Name: proportion, dtype: float64
+Total: 1.0
+
+Chi-square Test:
+Category            Chi2                p-value                  Significant
+--------------------------------------------------------------------------------
+Refactoring Type    1244.8346944684395  8.773962299766734e-201   Yes
+Keyword Category    386.52784157231235  2.6290157432700695e-60   Yes
