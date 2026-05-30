@@ -1,5 +1,4 @@
 loguru==0.7.2
-ollama~=0.1.17
 openai==0.28.1
 pandas~=2.1.1
 PyYAML==6.0.2
