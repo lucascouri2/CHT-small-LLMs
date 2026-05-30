@@ -1,8 +1,8 @@
 import re
-from pathlib import Path
-
+import sys
 import numpy as np
 import pandas as pd
+from pathlib import Path
 from scipy.stats import chi2_contingency
 from config.config_loader import Config
 from config.constants import REFACTORING_RESPONSE, INSERT_COMMENT_RESPONSE
@@ -11,8 +11,13 @@ from utils.common_utils import read_json_file, camel_to_spaces, check_completion
 
 
 Config.load_config()
-raw_output_path = Config.get_path("file_path.result") / Path("2025-03-06_01-10-07")
+#raw_output_path = Config.get_path("file_path.result") / Path("2025-03-06_01-10-07")
+if len(sys.argv) > 1:
+    timestamp = sys.argv[1]
+else:
+    timestamp = "2025-03-06_01-10-07"  # default
 
+raw_output_path = Config.get_path("file_path.result") / Path(timestamp)
 
 def get_keyword_variants(keyword):
     return [keyword.lower(), camel_to_spaces(keyword).lower(), to_camel_case(keyword).lower()]
