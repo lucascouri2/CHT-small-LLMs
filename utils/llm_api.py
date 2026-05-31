@@ -1,4 +1,5 @@
 import json
+import os
 from abc import ABC, abstractmethod
 
 import openai
@@ -150,7 +151,8 @@ class OllamaAPI(LLMAPI):
         self.session = requests.Session()
 
     def get_response(self, input_object: UnethicalInput):
-        url = 'http://localhost:11434/api/generate'
+        OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
+        url = f"{OLLAMA_HOST}/api/generate"
         headers = {'Content-Type': 'application/json'}
         data = {
             "model": self.model,

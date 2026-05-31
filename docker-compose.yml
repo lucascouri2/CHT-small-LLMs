@@ -1,0 +1,33 @@
+services:
+
+  ollama:
+    image: ollama/ollama
+    container_name: ollama_server
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_models:/root/.ollama
+    restart: unless-stopped
+
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+  cht:
+    build: .
+    container_name: cht_framework
+    depends_on:
+      - ollama
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    volumes:
+      - ./result:/app/result
+    command: python main.py
+
+volumes:
+  ollama_models:

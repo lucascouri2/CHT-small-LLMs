@@ -1,0 +1,9 @@
+result/
+__pycache__/
+*.pyc
+.env
+.git
+*.zip
+venv_cht_small/
+rascunho.ipynb
+requirements-windows.txt
