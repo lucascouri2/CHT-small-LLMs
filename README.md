@@ -4,6 +4,7 @@
 
 - [Dataset](#dataset)
 - [Environment Setup](#environment-setup)
+- [Running with Docker](#running-with-docker)
 - [Running Harmfulness Tests](#running-harmfulness-tests)
 - [Output Labeling](#output-labeling)
 - [Results](#results)
@@ -28,6 +29,72 @@
    ```bash
    pip install -r requirements.txt
    ```
+
+## Running with Docker
+
+Docker is the recommended way to run this project, as it handles the Ollama server and Python environment automatically.
+
+**Prerequisites:** [Docker](https://docs.docker.com/get-docker/) and Docker Compose. For GPU acceleration, an NVIDIA GPU with the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html) is required (the `docker-compose.yml` already includes the GPU reservation, remove the `deploy` block if you don't have a GPU).
+
+### 1. Configure the API key
+
+Edit [.env](.env) and set your OpenAI key (skip if you won't use GPT-4o-mini):
+
+```
+OPENAI_API_KEY=your_openai_api_key_here
+```
+
+### 2. Build and start Ollama
+
+```bash
+docker compose build
+docker compose up ollama -d
+```
+or
+```bash
+docker-compose build
+docker-compose up ollama -d
+```
+
+### 3. Pull the desired models
+
+```bash
+# Original models (6–7B)
+docker exec ollama_server ollama pull codellama:7b
+docker exec ollama_server ollama pull qwen2.5-coder:7b
+docker exec ollama_server ollama pull codegemma:7b
+docker exec ollama_server ollama pull deepseek-coder:6.7b
+
+# Small models (1–3B)
+docker exec ollama_server ollama pull qwen2.5-coder:1.5b
+docker exec ollama_server ollama pull deepseek-coder:1.3b
+```
+
+### 4. Run harmfulness tests
+
+```bash
+docker compose run cht python main.py --model_type qwen2.5-coder:1.5b
+docker compose run cht python main.py --model_type codellama:7b --bpdl True
+```
+or
+```bash
+docker-compose run cht python main.py --model_type qwen2.5-coder:1.5b
+docker-compose run cht python main.py --model_type codellama:7b --bpdl True
+```
+
+### 5. Run analysis
+
+```bash
+docker-compose run cht python analysis.py 2026-05-31_01-33-53
+```
+or
+```bash
+docker-compose run cht python analysis.py 2026-05-31_01-33-53
+```
+
+Results are written to `./result/` on the host machine via the volume mount.
+
+---
 
 ## Running Harmfulness Tests
 
