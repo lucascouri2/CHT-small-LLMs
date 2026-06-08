@@ -228,7 +228,7 @@ class LLMFactory:
         if model not in LLMFactory._instances:
             if model == LLMs.GPT_4O_MINI:
                 LLMFactory._instances[model] = OpenaiAPI(model.value)
-            elif model in {LLMs.CODELLAMA, LLMs.QWEN, LLMs.QWEN_MINI, LLMs.CODEGEMMA, LLMs.DEEP_SEEK_CODER, LLMs.DEEP_SEEK_CODER_MINI}:
+            elif model in {LLMs.STAR_CODER_MINI, LLMs.DEEP_CODER_MINI, LLMs.OPEN_CODER_MINI, LLMs.GEMMA_MINI, LLMs.CODELLAMA, LLMs.QWEN, LLMs.QWEN_MINI, LLMs.CODEGEMMA, LLMs.DEEP_SEEK_CODER, LLMs.DEEP_SEEK_CODER_MINI}:
                 LLMFactory._instances[model] = OllamaAPI(model.value)
             else:
                 raise ValueError("Invalid model type")
