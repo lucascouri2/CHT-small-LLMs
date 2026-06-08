@@ -50,11 +50,6 @@ OPENAI_API_KEY=your_openai_api_key_here
 docker compose build
 docker compose up ollama -d
 ```
-or
-```bash
-docker-compose build
-docker-compose up ollama -d
-```
 
 ### 3. Pull the desired models
 
@@ -76,27 +71,20 @@ docker exec ollama_server ollama pull deepseek-coder:1.3b
 docker compose run cht python main.py --model_type qwen2.5-coder:1.5b
 docker compose run cht python main.py --model_type codellama:7b --bpdl True
 ```
-or
-```bash
-docker-compose run cht python main.py --model_type qwen2.5-coder:1.5b
-docker-compose run cht python main.py --model_type codellama:7b --bpdl True
-```
+
 
 ### 5. Run analysis
 
 ```bash
-docker-compose run cht python analysis.py 2026-05-31_01-33-53
+docker compose run cht python analysis.py 2026-05-31_01-33-53
 ```
-or
-```bash
-docker-compose run cht python analysis.py 2026-05-31_01-33-53
-```
+
 
 Results are written to `./result/` on the host machine via the volume mount.
 
 ---
 
-## Running Harmfulness Tests
+## Running Harmfulness Tests without Docker
 
 To evaluate a model (e.g., `codellama:7b`):
 
