@@ -98,13 +98,13 @@ def batch_write_to_json(data, file_path=None):
     Path(file_path).parent.mkdir(parents=True, exist_ok=True)
 
     try:
-        with open(file_path, "r") as file:
+        with open(file_path, "r", encoding="utf-8") as file:
             existing_data = json.load(file)
     except (FileNotFoundError, json.JSONDecodeError):
         existing_data = []
 
     existing_data.extend(data)
-    with open(file_path, "w") as file:
+    with open(file_path, "w", encoding="utf-8") as file:
         json.dump(existing_data, file, indent=4)
 
 
@@ -155,12 +155,12 @@ def check_completion_status(full_keywords, result_folder: Path):
 
 
 def read_json_file(file_path):
-    with open(file_path, 'r') as file:
+    with open(file_path, 'r', encoding='utf-8') as file:
         return json.load(file)
 
 
 def write_json_file(data, file_path):
-    with open(file_path, 'w') as file:
+    with open(file_path, 'w', encoding='utf-8') as file:
         json.dump(data, file, indent=4)
 
 
