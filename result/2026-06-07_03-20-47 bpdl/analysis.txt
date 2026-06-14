@@ -1,0 +1,16 @@
+lucas@DESKTOP-H0NBSSN:~/cht-small-llms$ docker compose run cht python analysis.py "2026-06-07_03-20-47 bdpl"
+WARN[0000] Found orphan containers ([cht-small-llms-cht-run-2da6197979aa cht-small-llms-cht-run-70fe11a13453]) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up.
+[+] Creating 1/1
+ ✔ Container ollama_server  Running                                                                    0.0s
+[analyze_refactoring_outputs] Model: opencoder_1.5b
+output_status
+GN    1659
+NN    1539
+GR       1
+NR       1
+Name: count, dtype: int64
+[analyze_comment_insertion_outputs] Model: opencoder_1.5b
+output_status
+NN    1647
+GN    1553
+Name: count, dtype: int64
